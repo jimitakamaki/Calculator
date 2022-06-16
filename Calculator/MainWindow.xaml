@@ -28,7 +28,7 @@
 
             <Button Name="btnAc" Grid.Row="0" Grid.Column="0">AC</Button>
             <Button Name="btnU1" Grid.Row="0" Grid.Column="1"></Button>
-            <Button Name="btU2" Grid.Row="0" Grid.Column="2" Click="btU2_Click"></Button>
+            <Button Name="btU2" Grid.Row="0" Grid.Column="2"></Button>
             <Button Name="btnDivide" Grid.Row="0" Grid.Column="3">/</Button>
             <Button Name="btn7" Grid.Row="1" Grid.Column="0">7</Button>
             <Button Name="btn8" Grid.Row="1" Grid.Column="1">8</Button>
@@ -38,11 +38,15 @@
             <Button Name="btn5" Grid.Row="2" Grid.Column="1">5</Button>
             <Button Name="btn6" Grid.Row="2" Grid.Column="2">6</Button>
             <Button Name="btnSubstract" Grid.Row="2" Grid.Column="3">-</Button>
-            <Button Name="btn1" Grid.Row="3" Grid.Column="0">1</Button>
+            <Button 
+                Name="btn1" 
+                Grid.Row="3" 
+                Grid.Column="0" 
+                Command="{Binding AddNumberCommand}">1</Button>
             <Button Name="btn2" Grid.Row="3" Grid.Column="1">2</Button>
             <Button Name="btn3" Grid.Row="3" Grid.Column="2">3</Button>
             <Button Name="btnAdd" Grid.Row="3" Grid.Column="30">+</Button>
-            <Button Name="btn0" Grid.Row="4" Grid.Column="0" Click="btn0_Click">0</Button>
+            <Button Name="btn0" Grid.Row="4" Grid.Column="0">0</Button>
             <Button Name="btnComma" Grid.Row="4" Grid.Column="1">,</Button>
             <Button Name="btnErase" Grid.Row="4" Grid.Column="2">Erase</Button>
             <Button Name="btnCalculate" Grid.Row="4" Grid.Column="3">=</Button>

@@ -24,15 +24,5 @@ namespace Calculator
         {
             InitializeComponent();
         }
-
-        private void btU2_Click(object sender, RoutedEventArgs e)
-        {
-
-        }
-
-        private void btn0_Click(object sender, RoutedEventArgs e)
-        {
-
-        }
     }
 }
