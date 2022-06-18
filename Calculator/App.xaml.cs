@@ -1,4 +1,4 @@
-﻿using Calculator.ViewModel;
+﻿using CalculatorApp.ViewModel;
 using System;
 using System.Collections.Generic;
 using System.Configuration;
@@ -7,7 +7,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using System.Windows;
 
-namespace Calculator
+namespace CalculatorApp
 {
     /// <summary>
     /// Interaction logic for App.xaml
