@@ -155,7 +155,7 @@
             <Button
                 Name="btn0"
                 Grid.Row="4"
-                Grid.Column="0"
+                Grid.Column="1"
                 Command="{Binding AddNumberCommand}"
                 CommandParameter="0">
                 0
@@ -163,7 +163,7 @@
             <Button
                 Name="btnComma"
                 Grid.Row="4"
-                Grid.Column="1"
+                Grid.Column="0"
                 Command="{Binding AddNumberCommand}"
                 CommandParameter=",">
                 ,
