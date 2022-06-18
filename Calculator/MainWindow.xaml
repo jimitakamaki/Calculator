@@ -1,62 +1,187 @@
-﻿<Window x:Class="CalculatorApp.MainWindow"
-        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
-        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
-        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:local="clr-namespace:CalculatorApp"
-        xmlns:model="clr-namespace:CalculatorApp.Model"
-        xmlns:viewmodel="clr-namespace:CalculatorApp.ViewModel"
-        mc:Ignorable="d"
-        Title="MainWindow" Height="600" Width="360" MinWidth="360" MinHeight="600">
+﻿<Window
+    x:Class="CalculatorApp.MainWindow"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:local="clr-namespace:CalculatorApp"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:model="clr-namespace:CalculatorApp.Model"
+    xmlns:viewmodel="clr-namespace:CalculatorApp.ViewModel"
+    Title="MainWindow"
+    Width="360"
+    Height="600"
+    MinWidth="360"
+    MinHeight="600"
+    mc:Ignorable="d">
+
     <Window.DataContext>
-        <viewmodel:MainWindowViewModel/>
+        <viewmodel:MainWindowViewModel />
     </Window.DataContext>
+
     <Grid>
         <Grid.RowDefinitions>
-            <RowDefinition Height="20*"/>
-            <RowDefinition Height="80*"/>
+            <RowDefinition Height="20*" />
+            <RowDefinition Height="80*" />
         </Grid.RowDefinitions>
-        <TextBox Text="{Binding Text}"/>
+
+        <TextBox Text="{Binding Text}" />
+
         <Grid Grid.Row="1">
             <Grid.RowDefinitions>
-                <RowDefinition/>
-                <RowDefinition/>
-                <RowDefinition/>
-                <RowDefinition/>
-                <RowDefinition/>
+                <RowDefinition />
+                <RowDefinition />
+                <RowDefinition />
+                <RowDefinition />
+                <RowDefinition />
             </Grid.RowDefinitions>
             <Grid.ColumnDefinitions>
-                <ColumnDefinition/>
-                <ColumnDefinition/>
-                <ColumnDefinition/>
-                <ColumnDefinition/>
+                <ColumnDefinition />
+                <ColumnDefinition />
+                <ColumnDefinition />
+                <ColumnDefinition />
             </Grid.ColumnDefinitions>
 
-            <Button Name="btnAc" Grid.Row="0" Grid.Column="0">AC</Button>
-            <Button Name="btnU1" Grid.Row="0" Grid.Column="1"></Button>
-            <Button Name="btU2" Grid.Row="0" Grid.Column="2"></Button>
-            <Button Name="btnDivide" Grid.Row="0" Grid.Column="3">/</Button>
-            <Button Name="btn7" Grid.Row="1" Grid.Column="0">7</Button>
-            <Button Name="btn8" Grid.Row="1" Grid.Column="1">8</Button>
-            <Button Name="btn9" Grid.Row="1" Grid.Column="2">9</Button>
-            <Button Name="btnMultiply" Grid.Row="1" Grid.Column="3">*</Button>
-            <Button Name="btn4" Grid.Row="2" Grid.Column="0">4</Button>
-            <Button Name="btn5" Grid.Row="2" Grid.Column="1">5</Button>
-            <Button Name="btn6" Grid.Row="2" Grid.Column="2">6</Button>
-            <Button Name="btnSubstract" Grid.Row="2" Grid.Column="3">-</Button>
-            <Button 
-                Name="btn1" 
-                Grid.Row="3" 
-                Grid.Column="0" 
+            <Button
+                Name="btnAc"
+                Grid.Row="0"
+                Grid.Column="0"
+                Command="{Binding ClearTextCommand}">
+                AC
+            </Button>
+            <Button
+                Name="btnDivide"
+                Grid.Row="0"
+                Grid.Column="3"
                 Command="{Binding AddNumberCommand}"
-                CommandParameter="1">1</Button>
-            <Button Name="btn2" Grid.Row="3" Grid.Column="1">2</Button>
-            <Button Name="btn3" Grid.Row="3" Grid.Column="2">3</Button>
-            <Button Name="btnAdd" Grid.Row="3" Grid.Column="30">+</Button>
-            <Button Name="btn0" Grid.Row="4" Grid.Column="0">0</Button>
-            <Button Name="btnComma" Grid.Row="4" Grid.Column="1">,</Button>
-            <Button Name="btnErase" Grid.Row="4" Grid.Column="2">Erase</Button>
-            <Button Name="btnCalculate" Grid.Row="4" Grid.Column="3">=</Button>
+                CommandParameter="/">
+                /
+            </Button>
+            <Button
+                Name="btn7"
+                Grid.Row="1"
+                Grid.Column="0"
+                Command="{Binding AddNumberCommand}"
+                CommandParameter="7">
+                7
+            </Button>
+            <Button
+                Name="btn8"
+                Grid.Row="1"
+                Grid.Column="1"
+                Command="{Binding AddNumberCommand}"
+                CommandParameter="8">
+                8
+            </Button>
+            <Button
+                Name="btn9"
+                Grid.Row="1"
+                Grid.Column="2"
+                Command="{Binding AddNumberCommand}"
+                CommandParameter="9">
+                9
+            </Button>
+            <Button
+                Name="btnMultiply"
+                Grid.Row="1"
+                Grid.Column="3"
+                Command="{Binding AddNumberCommand}"
+                CommandParameter="*">
+                *
+            </Button>
+            <Button
+                Name="btn4"
+                Grid.Row="2"
+                Grid.Column="0"
+                Command="{Binding AddNumberCommand}"
+                CommandParameter="4">
+                4
+            </Button>
+            <Button
+                Name="btn5"
+                Grid.Row="2"
+                Grid.Column="1"
+                Command="{Binding AddNumberCommand}"
+                CommandParameter="5">
+                5
+            </Button>
+            <Button
+                Name="btn6"
+                Grid.Row="2"
+                Grid.Column="2"
+                Command="{Binding AddNumberCommand}"
+                CommandParameter="6">
+                6
+            </Button>
+            <Button
+                Name="btnSubstract"
+                Grid.Row="2"
+                Grid.Column="3"
+                Command="{Binding AddNumberCommand}"
+                CommandParameter="-">
+                -
+            </Button>
+            <Button
+                Name="btn1"
+                Grid.Row="3"
+                Grid.Column="0"
+                Command="{Binding AddNumberCommand}"
+                CommandParameter="1">
+                1
+            </Button>
+            <Button
+                Name="btn2"
+                Grid.Row="3"
+                Grid.Column="1"
+                Command="{Binding AddNumberCommand}"
+                CommandParameter="2">
+                2
+            </Button>
+            <Button
+                Name="btn3"
+                Grid.Row="3"
+                Grid.Column="2"
+                Command="{Binding AddNumberCommand}"
+                CommandParameter="3">
+                3
+            </Button>
+            <Button
+                Name="btnAdd"
+                Grid.Row="3"
+                Grid.Column="30"
+                Command="{Binding AddNumberCommand}"
+                CommandParameter="+">
+                +
+            </Button>
+            <Button
+                Name="btn0"
+                Grid.Row="4"
+                Grid.Column="0"
+                Command="{Binding AddNumberCommand}"
+                CommandParameter="0">
+                0
+            </Button>
+            <Button
+                Name="btnComma"
+                Grid.Row="4"
+                Grid.Column="1"
+                Command="{Binding AddNumberCommand}"
+                CommandParameter=",">
+                ,
+            </Button>
+            <Button
+                Name="btnErase"
+                Grid.Row="4"
+                Grid.Column="2"
+                Command="{Binding EraseCharacterCommand}">
+                Erase
+            </Button>
+            <Button
+                Name="btnCalculate"
+                Grid.Row="4"
+                Grid.Column="3"
+                Command="{Binding CalculateCommand}">
+                =
+            </Button>
         </Grid>
     </Grid>
 </Window>

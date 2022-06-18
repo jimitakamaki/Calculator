@@ -9,10 +9,9 @@ namespace CalculatorApp.Model
 {
     public class Calculator
     {
-        public string Text { get; set; }
-        public Calculator()
+        public int Calculate(string calculation)
         {
-            Text = "";
+            return 55;
         }
     }
 }
