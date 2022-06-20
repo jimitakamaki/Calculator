@@ -20,7 +20,7 @@ namespace Calculator.Model
                 try
                 {
                     double.Parse(c.ToString());
-                    if (parts.Count < n - 1 || parts.Count == 0) parts.Add(c.ToString());
+                    if (parts.Count == n) parts.Add(c.ToString());
                     else parts[n] += (c.ToString());
                 }
                 catch
@@ -31,10 +31,9 @@ namespace Calculator.Model
                         parts.Add(c.ToString());
                         n++;
                     }
-                    else
+                    else // First character is the minus sign
                     {
-                        n++;
-                        parts[n] += (c.ToString());
+                        parts.Add(c.ToString());
                     }
                 }
                 loops++;
@@ -52,7 +51,7 @@ namespace Calculator.Model
                 }
                 else if (parts[i].Equals("/"))
                 {
-                    parts[i + 1] = (double.Parse(parts[i - 1]) / double.Parse(parts[i + 1])).ToString();
+                    parts[i - 1] = (double.Parse(parts[i - 1]) / double.Parse(parts[i + 1])).ToString();
                     parts.RemoveAt(i);
                     parts.RemoveAt(i);
                     i--;
