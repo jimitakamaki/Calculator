@@ -44,5 +44,35 @@ namespace Calculator.Tests
             double result = calculator.Calculate(calculation);
             Assert.AreEqual(expectedResult, result);
         }
+
+        [TestMethod]
+        public void Calculate_negativeFirstNumber_zero()
+        {
+            CalculatorModel calculator = new CalculatorModel();
+            string calculation = "-5+5";
+            double result = calculator.Calculate(calculation);
+            Assert.AreEqual(0, result);
+        }
+
+        [DataTestMethod]
+        [DataRow("63.7/3.8734", 0.001, 16.446)]
+        [DataRow("5.123+6.88*0.11-5.5", 0.001, 0.380)]
+        public void Calculate_decimalNumbers_differentValues(string calculation, double delta, double expectedResult)
+        {
+            CalculatorModel calculator = new CalculatorModel();
+            double result = calculator.Calculate(calculation);
+            Assert.AreEqual(expectedResult, result, delta);
+        }
+
+        [DataTestMethod]
+        [DataRow("10-5*2+3/7", 0.001, 0.429)]
+        [DataRow("-500.22-2-77.4*6", 0.001, -966.62)]
+        [DataRow("99-1*5.5+77.7", 0.001, 171.7)]
+        public void Calculate_complexCalculations_differentValues(string calculation, double delta, double expectedResult)
+        {
+            CalculatorModel calculator = new CalculatorModel();
+            double result = calculator.Calculate(calculation);
+            Assert.AreEqual(expectedResult, result, delta);
+        }
     }
 }
