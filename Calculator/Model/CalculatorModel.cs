@@ -5,9 +5,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace CalculatorApp.Model
+namespace Calculator.Model
 {
-    public class Calculator
+    public class CalculatorModel
     {
         public double Calculate(string calculation)
         {

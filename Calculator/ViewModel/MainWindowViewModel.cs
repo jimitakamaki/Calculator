@@ -4,15 +4,15 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Input;
-using CalculatorApp.Model;
+using Calculator.Model;
 using Microsoft.Toolkit.Mvvm.ComponentModel;
 using Microsoft.Toolkit.Mvvm.Input;
 
-namespace CalculatorApp.ViewModel
+namespace Calculator.ViewModel
 {
     class MainWindowViewModel : ObservableObject
     {
-        Calculator calculator;
+        CalculatorModel calculator;
         private string _text;
         public string Text 
         { 
@@ -25,7 +25,7 @@ namespace CalculatorApp.ViewModel
         public ICommand CalculateCommand { get; }
         public MainWindowViewModel()
         {
-            calculator = new Calculator();
+            calculator = new CalculatorModel();
             _text = "";
             AddNumberCommand = new RelayCommand<string>(addNumber);
             ClearTextCommand = new RelayCommand(clearText);
