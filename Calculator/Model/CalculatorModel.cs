@@ -1,6 +1,7 @@
 ﻿using Microsoft.Toolkit.Mvvm.ComponentModel;
 using System;
 using System.Collections.Generic;
+using System.Globalization;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -9,8 +10,27 @@ namespace Calculator.Model
 {
     public class CalculatorModel
     {
+        CultureInfo culture;
+
+        public CalculatorModel()
+        {
+            culture = CultureInfo.CurrentCulture;
+        }
+
         public double Calculate(string calculation)
         {
+            // Remove culture specific formatting from calculation string
+            if (culture.NumberFormat.NumberDecimalSeparator.Equals(','))
+            {
+                calculation = calculation.Replace(".", string.Empty);
+                calculation = calculation.Replace(" ", string.Empty);
+            }
+            if (culture.NumberFormat.NumberDecimalSeparator.Equals('.'))
+            {
+                calculation = calculation.Replace(".", ",");
+                calculation = calculation.Replace(" ", string.Empty);
+            }
+
             // Divide calculation string into a list of numbers and mathematical operators.
             List<string> parts = new List<string>();
             int n = 0;
@@ -25,15 +45,19 @@ namespace Calculator.Model
                 }
                 catch
                 {
-                    if (loops != 0)
+                    if (loops == 0 && c.Equals('-')) // Calculation starts with negative number
                     {
-                        n++;
                         parts.Add(c.ToString());
-                        n++;
                     }
-                    else // First character is the minus sign
+                    else if (c.Equals(','))
                     {
+                        parts[n] += (",");
+                    }
+                    else
+                    {
+                        n++;
                         parts.Add(c.ToString());
+                        n++;
                     }
                 }
                 loops++;

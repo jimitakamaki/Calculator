@@ -67,7 +67,7 @@ namespace Calculator.Tests
         [DataTestMethod]
         [DataRow("10-5*2+3/7", 0.001, 0.429)]
         [DataRow("-500.22-2-77.4*6", 0.001, -966.62)]
-        [DataRow("99-1*5.5+77.7", 0.001, 171.7)]
+        [DataRow("99-1*5.5+77.7", 0.001, 171.2)]
         public void Calculate_complexCalculations_differentValues(string calculation, double delta, double expectedResult)
         {
             CalculatorModel calculator = new CalculatorModel();
