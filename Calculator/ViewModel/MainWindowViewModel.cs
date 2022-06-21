@@ -29,6 +29,7 @@ namespace Calculator.ViewModel
             set { SetProperty(ref _decimalSeparator, value); }
         }
         public ICommand AddNumberCommand { get; }
+        public ICommand AddDecimalSeparatorCommand { get; }
         public ICommand ClearTextCommand { get; }
         public ICommand EraseCharacterCommand { get; }
         public ICommand CalculateCommand { get; }
@@ -42,6 +43,7 @@ namespace Calculator.ViewModel
             _text = "";
 
             AddNumberCommand = new RelayCommand<string>(addNumber);
+            AddDecimalSeparatorCommand = new RelayCommand(addDecimalSeparator);
             ClearTextCommand = new RelayCommand(clearText);
             EraseCharacterCommand = new RelayCommand(eraseCharacter);
             CalculateCommand = new RelayCommand(calculate);
@@ -50,6 +52,11 @@ namespace Calculator.ViewModel
         private void addNumber(string n)
         {
             Text += n;
+        }
+
+        private void addDecimalSeparator()
+        {
+            Text += DecimalSeparator;
         }
 
         private void clearText()
