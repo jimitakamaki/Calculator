@@ -14,11 +14,19 @@ namespace Calculator.ViewModel
     class MainWindowViewModel : ObservableObject
     {
         CalculatorModel calculator;
+        CultureInfo culture = CultureInfo.CurrentCulture;
+
         private string _text;
+        private string _decimalSeparator;
         public string Text 
         { 
             get { return _text; } 
             set { SetProperty(ref _text, value); } 
+        }
+        public string DecimalSeparator
+        {
+            get { return _decimalSeparator; }
+            set { SetProperty(ref _decimalSeparator, value); }
         }
         public ICommand AddNumberCommand { get; }
         public ICommand ClearTextCommand { get; }
@@ -27,7 +35,12 @@ namespace Calculator.ViewModel
         public MainWindowViewModel()
         {
             calculator = new CalculatorModel();
+
+            if (culture.NumberFormat.NumberDecimalSeparator.Equals(",")) DecimalSeparator = ",";
+            else if (culture.NumberFormat.NumberDecimalSeparator.Equals(".")) DecimalSeparator = ".";
+            
             _text = "";
+
             AddNumberCommand = new RelayCommand<string>(addNumber);
             ClearTextCommand = new RelayCommand(clearText);
             EraseCharacterCommand = new RelayCommand(eraseCharacter);

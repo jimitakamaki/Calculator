@@ -165,9 +165,8 @@
                 Grid.Row="4"
                 Grid.Column="0"
                 Command="{Binding AddNumberCommand}"
-                CommandParameter=",">
-                ,
-            </Button>
+                CommandParameter=","
+                Content="{Binding DecimalSeparator}" />
             <Button
                 Name="btnErase"
                 Grid.Row="4"
