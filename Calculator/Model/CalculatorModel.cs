@@ -14,22 +14,13 @@ namespace Calculator.Model
 
         public CalculatorModel()
         {
-            culture = CultureInfo.CurrentCulture;
+            culture = CultureInfo.InvariantCulture;
         }
 
         public double Calculate(string calculation)
         {
-            // Remove culture specific formatting from calculation string
-            if (culture.NumberFormat.NumberDecimalSeparator.Equals(','))
-            {
-                calculation = calculation.Replace(".", string.Empty);
-                calculation = calculation.Replace(" ", string.Empty);
-            }
-            if (culture.NumberFormat.NumberDecimalSeparator.Equals('.'))
-            {
-                calculation = calculation.Replace(".", ",");
-                calculation = calculation.Replace(" ", string.Empty);
-            }
+            calculation = calculation.Replace(" ", string.Empty);
+            calculation = calculation.Replace(",", ".");
 
             // Divide calculation string into a list of numbers and mathematical operators.
             List<string> parts = new List<string>();
@@ -39,7 +30,7 @@ namespace Calculator.Model
             {
                 try
                 {
-                    double.Parse(c.ToString());
+                    double.Parse(c.ToString(), culture);
                     if (parts.Count == n) parts.Add(c.ToString());
                     else parts[n] += (c.ToString());
                 }
@@ -49,9 +40,9 @@ namespace Calculator.Model
                     {
                         parts.Add(c.ToString());
                     }
-                    else if (c.Equals(','))
+                    else if (c.Equals('.'))
                     {
-                        parts[n] += (",");
+                        parts[n] += c.ToString();
                     }
                     else
                     {
@@ -68,14 +59,14 @@ namespace Calculator.Model
             {
                 if (parts[i].Equals("*"))
                 {
-                    parts[i - 1] = (double.Parse(parts[i - 1]) * double.Parse(parts[i + 1])).ToString();
+                    parts[i - 1] = (double.Parse(parts[i - 1], culture) * double.Parse(parts[i + 1], culture)).ToString("n12", culture);
                     parts.RemoveAt(i);
                     parts.RemoveAt(i);
                     i--;
                 }
                 else if (parts[i].Equals("/"))
                 {
-                    parts[i - 1] = (double.Parse(parts[i - 1]) / double.Parse(parts[i + 1])).ToString();
+                    parts[i - 1] = (double.Parse(parts[i - 1], culture) / double.Parse(parts[i + 1], culture)).ToString("n12", culture);
                     parts.RemoveAt(i);
                     parts.RemoveAt(i);
                     i--;
@@ -87,21 +78,21 @@ namespace Calculator.Model
             {
                 if (parts[i].Equals("+"))
                 {
-                    parts[i - 1] = (double.Parse(parts[i - 1]) + double.Parse(parts[i + 1])).ToString();
+                    parts[i - 1] = (double.Parse(parts[i - 1], culture) + double.Parse(parts[i + 1], culture)).ToString("n12", culture);
                     parts.RemoveAt(i);
                     parts.RemoveAt(i);
                     i--;
                 }
                 else if (parts[i].Equals("-"))
                 {
-                    parts[i - 1] = (double.Parse(parts[i - 1]) - double.Parse(parts[i + 1])).ToString();
+                    parts[i - 1] = (double.Parse(parts[i - 1], culture) - double.Parse(parts[i + 1], culture)).ToString("n12", culture);
                     parts.RemoveAt(i);
                     parts.RemoveAt(i);
                     i--;
                 }
             }
 
-            return double.Parse(parts[0]);
+            return double.Parse(parts[0], culture);
         }
     }
 }

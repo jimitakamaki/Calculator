@@ -1,10 +1,13 @@
 using Calculator.Model;
+using System.Globalization;
 
 namespace Calculator.Tests
 {
     [TestClass]
     public class CalculatorModelTests
     {
+        CultureInfo culture = CultureInfo.CurrentCulture;
+
         [DataTestMethod]
         [DataRow("5+5", 10)]
         [DataRow("1+900+2", 903)]
