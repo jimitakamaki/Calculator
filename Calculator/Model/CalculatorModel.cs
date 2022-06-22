@@ -21,10 +21,10 @@ namespace Calculator.Model
 
         public double Calculate(string calculation)
         {
-            calculation = calculation.Replace(" ", string.Empty);
-            calculation = calculation.Replace(",", ".");
+            string formattedCalculation = calculation.Replace(" ", string.Empty);
+            formattedCalculation = calculation.Replace(",", ".");
 
-            List<string> parts = calcSplitter.SplitIntoList(calculation);
+            List<string> parts = calcSplitter.SplitIntoList(formattedCalculation);
 
             // Multiplication & division
             for (int i = 0; i < parts.Count; i++)

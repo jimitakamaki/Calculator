@@ -13,8 +13,9 @@ namespace Calculator.ViewModel
 {
     class MainWindowViewModel : ObservableObject
     {
-        CalculatorModel calculator;
-        CultureInfo culture = CultureInfo.CurrentCulture;
+        private CalculatorModel _calculator;
+        private CalculationFormatter _calcFormatter;
+        private CultureInfo _culture = CultureInfo.CurrentCulture;
 
         private string _text;
         private string _decimalSeparator;
@@ -35,9 +36,10 @@ namespace Calculator.ViewModel
         public ICommand CalculateCommand { get; }
         public MainWindowViewModel()
         {
-            calculator = new CalculatorModel();
+            _calculator = new CalculatorModel();
+            _calcFormatter = new CalculationFormatter();
 
-            if (culture.NumberFormat.NumberDecimalSeparator.Equals(",")) DecimalSeparator = ",";
+            if (_culture.NumberFormat.NumberDecimalSeparator.Equals(",")) DecimalSeparator = ",";
             else DecimalSeparator = ".";
             
             _text = "";
@@ -52,6 +54,7 @@ namespace Calculator.ViewModel
         private void addNumber(string n)
         {
             Text += n;
+            Text = _calcFormatter.FormatCalculationString(Text);
         }
 
         private void addDecimalSeparator()
@@ -67,11 +70,12 @@ namespace Calculator.ViewModel
         private void eraseCharacter()
         {
             Text = Text.Remove(Text.Length - 1);
+            Text = _calcFormatter.FormatCalculationString(Text);
         }
 
         private void calculate()
         {
-            Text = calculator.Calculate(Text).ToString();
+            Text = _calculator.Calculate(Text).ToString();
         }
     }
 }

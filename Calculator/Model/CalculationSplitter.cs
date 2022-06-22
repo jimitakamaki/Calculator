@@ -12,10 +12,12 @@ namespace Calculator.Model
         public List<string> SplitIntoList(string calculation)
         {
             // Divide calculation string into a list of numbers and mathematical operators.
+            string formattedCalculation = calculation.Replace(" ", string.Empty);
+            //formattedCalculation = calculation.Replace(" ", string.Empty); unknown character?
             List<string> parts = new List<string>();
             int n = 0;
             int loops = 0;
-            foreach (char c in calculation)
+            foreach (char c in formattedCalculation)
             {
                 try
                 {
@@ -29,7 +31,7 @@ namespace Calculator.Model
                     {
                         parts.Add(c.ToString());
                     }
-                    else if (c.Equals('.'))
+                    else if (c.Equals('.') || c.Equals(','))
                     {
                         parts[n] += c.ToString();
                     }
