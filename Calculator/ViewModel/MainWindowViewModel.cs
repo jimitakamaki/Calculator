@@ -38,7 +38,7 @@ namespace Calculator.ViewModel
             calculator = new CalculatorModel();
 
             if (culture.NumberFormat.NumberDecimalSeparator.Equals(",")) DecimalSeparator = ",";
-            else if (culture.NumberFormat.NumberDecimalSeparator.Equals(".")) DecimalSeparator = ".";
+            else DecimalSeparator = ".";
             
             _text = "";
 
