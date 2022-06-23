@@ -19,10 +19,10 @@ namespace Calculator.ViewModel
 
         private string _text;
         private string _decimalSeparator;
-        public string Text 
-        { 
-            get { return _text; } 
-            set { SetProperty(ref _text, value); } 
+        public string Text
+        {
+            get { return _text; }
+            set { SetProperty(ref _text, value); }
         }
         public string DecimalSeparator
         {
@@ -41,7 +41,7 @@ namespace Calculator.ViewModel
 
             if (_culture.NumberFormat.NumberDecimalSeparator.Equals(",")) DecimalSeparator = ",";
             else DecimalSeparator = ".";
-            
+
             _text = "";
 
             AddNumberCommand = new RelayCommand<string>(addNumber);
@@ -53,13 +53,16 @@ namespace Calculator.ViewModel
 
         private void addNumber(string n)
         {
-            Text += n;
-            Text = _calcFormatter.FormatCalculationString(Text);
+            if (Text.Replace(" ", string.Empty).Length <= 28)
+            {
+                Text += n;
+                Text = _calcFormatter.FormatCalculationString(Text);
+            }
         }
 
         private void addDecimalSeparator()
         {
-            Text += DecimalSeparator;
+            if (Text.Replace(" ", string.Empty).Length <= 27) Text += DecimalSeparator;
         }
 
         private void clearText()

@@ -14,7 +14,7 @@ namespace Calculator.Tests
         public void Calculate_addition_differentValues(string calculation, double expectedResult)
         {
             CalculatorModel calculator = new CalculatorModel();
-            double result = calculator.Calculate(calculation);
+            double result = (double) calculator.Calculate(calculation);
             Assert.AreEqual(expectedResult, result);
         }
 
@@ -24,7 +24,7 @@ namespace Calculator.Tests
         public void Calculate_subtraction_differentValues(string calculation, double expectedResult)
         {
             CalculatorModel calculator = new CalculatorModel();
-            double result = calculator.Calculate(calculation);
+            double result = (double) calculator.Calculate(calculation);
             Assert.AreEqual(expectedResult, result);
         }
 
@@ -34,7 +34,7 @@ namespace Calculator.Tests
         public void Calculate_multiplication_differentValues(string calculation, double expectedResult)
         {
             CalculatorModel calculator = new CalculatorModel();
-            double result = calculator.Calculate(calculation);
+            double result = (double)calculator.Calculate(calculation);
             Assert.AreEqual(expectedResult, result);
         }
 
@@ -44,7 +44,7 @@ namespace Calculator.Tests
         public void Calculate_division_differentValues(string calculation, double expectedResult)
         {
             CalculatorModel calculator = new CalculatorModel();
-            double result = calculator.Calculate(calculation);
+            double result = (double)calculator.Calculate(calculation);
             Assert.AreEqual(expectedResult, result);
         }
 
@@ -53,7 +53,7 @@ namespace Calculator.Tests
         {
             CalculatorModel calculator = new CalculatorModel();
             string calculation = "-5+5";
-            double result = calculator.Calculate(calculation);
+            double result = (double)calculator.Calculate(calculation);
             Assert.AreEqual(0, result);
         }
 
@@ -63,7 +63,7 @@ namespace Calculator.Tests
         public void Calculate_decimalNumbers_differentValues(string calculation, double delta, double expectedResult)
         {
             CalculatorModel calculator = new CalculatorModel();
-            double result = calculator.Calculate(calculation);
+            double result = (double) calculator.Calculate(calculation);
             Assert.AreEqual(expectedResult, result, delta);
         }
 
@@ -74,7 +74,7 @@ namespace Calculator.Tests
         public void Calculate_complexCalculations_differentValues(string calculation, double delta, double expectedResult)
         {
             CalculatorModel calculator = new CalculatorModel();
-            double result = calculator.Calculate(calculation);
+            double result = (double) calculator.Calculate(calculation);
             Assert.AreEqual(expectedResult, result, delta);
         }
     }

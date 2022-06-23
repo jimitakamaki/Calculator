@@ -1,18 +1,21 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Globalization;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Calculator.Model
 {
     public class CalculationFormatter
     {
         private CalculationSplitter _calcSplitter;
+        private NumberFormatInfo _nfi;
         public CalculationFormatter()
         {
             _calcSplitter = new CalculationSplitter();
+
+            _nfi = new NumberFormatInfo();
+            _nfi.NumberGroupSeparator = " "; // Whitespace character
+            if (CultureInfo.CurrentCulture.NumberFormat.NumberDecimalSeparator.Equals("."))
+                _nfi.NumberDecimalSeparator = ".";
+            else _nfi.NumberDecimalSeparator = ",";
         }
         public string FormatCalculationString(string calc)
         {
@@ -21,26 +24,17 @@ namespace Calculator.Model
             {
                 try
                 {
-                    //parts[i] = double.Parse(parts[i], CultureInfo.CurrentCulture).ToString("n", CultureInfo.CurrentCulture);
-                    double number = double.Parse(parts[i], CultureInfo.CurrentCulture);
+                    decimal number = decimal.Parse(parts[i], _nfi);
                     if (number >= 1000)
                     {
-                        string decimalSeparator;
-                        if (CultureInfo.CurrentCulture.NumberFormat.NumberDecimalSeparator.Equals(",")) decimalSeparator = ",";
-                        else decimalSeparator = ".";
-
-                        if (parts[i].Contains(decimalSeparator))
+                        if (parts[i].Contains(_nfi.NumberDecimalSeparator))
                         {
-                            string firstPart = parts[i].Substring(parts[i].IndexOf(decimalSeparator) - 1);
-                            string lastPart = parts[i].Substring(0, parts[i].IndexOf(decimalSeparator));
-                            firstPart = int.Parse(firstPart).ToString(CultureInfo.CurrentCulture);
+                            string firstPart = parts[i].Substring(0, parts[i].IndexOf(_nfi.NumberDecimalSeparator));
+                            string lastPart = parts[i].Substring(parts[i].IndexOf(_nfi.NumberDecimalSeparator));
+                            firstPart = decimal.Parse(firstPart).ToString("n0", _nfi);
                             parts[i] = firstPart + lastPart;
                         }
-                        else
-                        {
-                            parts[i] = int.Parse(parts[i]).ToString("n0", CultureInfo.CurrentCulture);
-                        }
-                        
+                        else parts[i] = decimal.Parse(parts[i]).ToString("n0", _nfi);
                     }
                 }
                 catch { }

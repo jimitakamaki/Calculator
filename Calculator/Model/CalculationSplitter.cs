@@ -1,19 +1,23 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Globalization;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Calculator.Model
 {
     public class CalculationSplitter
     {
+        private NumberFormatInfo _nfi;
+
+        public CalculationSplitter()
+        {
+            _nfi = new NumberFormatInfo();
+            _nfi.NumberGroupSeparator = " "; // Whitespace character
+            if (CultureInfo.CurrentCulture.NumberFormat.NumberDecimalSeparator.Equals("."))
+                _nfi.NumberDecimalSeparator = ".";
+            else _nfi.NumberDecimalSeparator = ",";
+        }
         public List<string> SplitIntoList(string calculation)
         {
-            // Divide calculation string into a list of numbers and mathematical operators.
-            string formattedCalculation = calculation.Replace(" ", string.Empty);
-            //formattedCalculation = calculation.Replace(" ", string.Empty); unknown character?
+            string formattedCalculation = calculation.Replace(" ", string.Empty);
             List<string> parts = new List<string>();
             int n = 0;
             int loops = 0;
@@ -21,7 +25,7 @@ namespace Calculator.Model
             {
                 try
                 {
-                    double.Parse(c.ToString(), CultureInfo.CurrentCulture);
+                    decimal.Parse(c.ToString(), _nfi);
                     if (parts.Count == n) parts.Add(c.ToString());
                     else parts[n] += (c.ToString());
                 }
