@@ -45,7 +45,8 @@
                 Name="btnAc"
                 Grid.Row="0"
                 Grid.Column="0"
-                Command="{Binding ClearTextCommand}">
+                Command="{Binding ClearTextCommand}"
+                Style="{StaticResource CalculatorButtonStyle}">
                 AC
             </Button>
             <Button
@@ -53,7 +54,8 @@
                 Grid.Row="0"
                 Grid.Column="3"
                 Command="{Binding AddNumberCommand}"
-                CommandParameter="/">
+                CommandParameter="/"
+                Style="{StaticResource CalculatorButtonStyle}">
                 /
             </Button>
             <Button
@@ -61,7 +63,8 @@
                 Grid.Row="1"
                 Grid.Column="0"
                 Command="{Binding AddNumberCommand}"
-                CommandParameter="7">
+                CommandParameter="7"
+                Style="{StaticResource CalculatorButtonStyle}">
                 7
             </Button>
             <Button
@@ -69,7 +72,8 @@
                 Grid.Row="1"
                 Grid.Column="1"
                 Command="{Binding AddNumberCommand}"
-                CommandParameter="8">
+                CommandParameter="8"
+                Style="{StaticResource CalculatorButtonStyle}">
                 8
             </Button>
             <Button
@@ -77,7 +81,8 @@
                 Grid.Row="1"
                 Grid.Column="2"
                 Command="{Binding AddNumberCommand}"
-                CommandParameter="9">
+                CommandParameter="9"
+                Style="{StaticResource CalculatorButtonStyle}">
                 9
             </Button>
             <Button
@@ -85,7 +90,8 @@
                 Grid.Row="1"
                 Grid.Column="3"
                 Command="{Binding AddNumberCommand}"
-                CommandParameter="*">
+                CommandParameter="*"
+                Style="{StaticResource CalculatorButtonStyle}">
                 *
             </Button>
             <Button
@@ -93,7 +99,8 @@
                 Grid.Row="2"
                 Grid.Column="0"
                 Command="{Binding AddNumberCommand}"
-                CommandParameter="4">
+                CommandParameter="4"
+                Style="{StaticResource CalculatorButtonStyle}">
                 4
             </Button>
             <Button
@@ -101,7 +108,8 @@
                 Grid.Row="2"
                 Grid.Column="1"
                 Command="{Binding AddNumberCommand}"
-                CommandParameter="5">
+                CommandParameter="5"
+                Style="{StaticResource CalculatorButtonStyle}">
                 5
             </Button>
             <Button
@@ -109,7 +117,8 @@
                 Grid.Row="2"
                 Grid.Column="2"
                 Command="{Binding AddNumberCommand}"
-                CommandParameter="6">
+                CommandParameter="6"
+                Style="{StaticResource CalculatorButtonStyle}">
                 6
             </Button>
             <Button
@@ -117,7 +126,8 @@
                 Grid.Row="2"
                 Grid.Column="3"
                 Command="{Binding AddNumberCommand}"
-                CommandParameter="-">
+                CommandParameter="-"
+                Style="{StaticResource CalculatorButtonStyle}">
                 -
             </Button>
             <Button
@@ -125,7 +135,8 @@
                 Grid.Row="3"
                 Grid.Column="0"
                 Command="{Binding AddNumberCommand}"
-                CommandParameter="1">
+                CommandParameter="1"
+                Style="{StaticResource CalculatorButtonStyle}">
                 1
             </Button>
             <Button
@@ -133,7 +144,8 @@
                 Grid.Row="3"
                 Grid.Column="1"
                 Command="{Binding AddNumberCommand}"
-                CommandParameter="2">
+                CommandParameter="2"
+                Style="{StaticResource CalculatorButtonStyle}">
                 2
             </Button>
             <Button
@@ -141,7 +153,8 @@
                 Grid.Row="3"
                 Grid.Column="2"
                 Command="{Binding AddNumberCommand}"
-                CommandParameter="3">
+                CommandParameter="3"
+                Style="{StaticResource CalculatorButtonStyle}">
                 3
             </Button>
             <Button
@@ -149,7 +162,8 @@
                 Grid.Row="3"
                 Grid.Column="30"
                 Command="{Binding AddNumberCommand}"
-                CommandParameter="+">
+                CommandParameter="+"
+                Style="{StaticResource CalculatorButtonStyle}">
                 +
             </Button>
             <Button
@@ -157,7 +171,8 @@
                 Grid.Row="4"
                 Grid.Column="1"
                 Command="{Binding AddNumberCommand}"
-                CommandParameter="0">
+                CommandParameter="0"
+                Style="{StaticResource CalculatorButtonStyle}">
                 0
             </Button>
             <Button
@@ -165,19 +180,22 @@
                 Grid.Row="4"
                 Grid.Column="0"
                 Command="{Binding AddDecimalSeparatorCommand}"
-                Content="{Binding DecimalSeparator}" />
+                Content="{Binding DecimalSeparator}"
+                Style="{StaticResource CalculatorButtonStyle}" />
             <Button
                 Name="btnErase"
                 Grid.Row="4"
                 Grid.Column="2"
-                Command="{Binding EraseCharacterCommand}">
+                Command="{Binding EraseCharacterCommand}"
+                Style="{StaticResource CalculatorButtonStyle}">
                 Erase
             </Button>
             <Button
                 Name="btnCalculate"
                 Grid.Row="4"
                 Grid.Column="3"
-                Command="{Binding CalculateCommand}">
+                Command="{Binding CalculateCommand}"
+                Style="{StaticResource CalculatorButtonStyle}">
                 =
             </Button>
         </Grid>
