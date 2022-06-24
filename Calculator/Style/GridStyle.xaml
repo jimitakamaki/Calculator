@@ -3,7 +3,8 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
     
     <Style x:Key="GridStyle" TargetType="{x:Type Grid}">
-        <Setter Property="Background" Value="#22252b"/>
+        <Setter Property="Background" Value="#e6e6e6"/>
+        <Setter Property="Margin" Value="3"/>
     </Style>
     
 </ResourceDictionary>

@@ -4,13 +4,13 @@
     
     <Style x:Key="CalculatorButtonStyle" TargetType="{x:Type Button}">
         <Setter Property="Margin" Value="1.5" />
-        <Setter Property="Foreground" Value="White"/>
-        <Setter Property="FontSize" Value="30"/>
+        <Setter Property="Foreground" Value="Black"/>
+        <Setter Property="FontSize" Value="25"/>
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="{x:Type Button}">
                     <Border 
-                        Background="#282c36" 
+                        Background="#fcfcfc" 
                         CornerRadius="5">
                         <ContentPresenter 
                             HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"     

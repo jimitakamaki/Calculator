@@ -8,8 +8,8 @@
     xmlns:model="clr-namespace:Calculator.Model"
     xmlns:viewmodel="clr-namespace:Calculator.ViewModel"
     Title="MainWindow"
-    Width="317"
-    Height="504"
+    Width="358"
+    Height="521"
     MinWidth="317"
     MinHeight="504"
     mc:Ignorable="d">
