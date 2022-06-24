@@ -8,10 +8,10 @@
     xmlns:model="clr-namespace:Calculator.Model"
     xmlns:viewmodel="clr-namespace:Calculator.ViewModel"
     Title="MainWindow"
-    Width="360"
-    Height="600"
-    MinWidth="360"
-    MinHeight="600"
+    Width="317"
+    Height="504"
+    MinWidth="317"
+    MinHeight="504"
     mc:Ignorable="d">
 
     <Window.DataContext>
@@ -20,8 +20,8 @@
 
     <Grid Style="{DynamicResource GridStyle}">
         <Grid.RowDefinitions>
-            <RowDefinition Height="20*" />
-            <RowDefinition Height="80*" />
+            <RowDefinition Height="30*" />
+            <RowDefinition Height="70*" />
         </Grid.RowDefinitions>
 
         <TextBlock 
