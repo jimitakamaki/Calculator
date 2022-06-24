@@ -8,6 +8,9 @@
         <ResourceDictionary>
             <ResourceDictionary.MergedDictionaries>
                 <ResourceDictionary Source="Style/CalculatorButtonStyle.xaml" />
+                <ResourceDictionary Source="Style/WindowStyle.xaml"/>
+                <ResourceDictionary Source="Style/GridStyle.xaml"/>
+                <ResourceDictionary Source="Style/TextBlockStyle.xaml"/>
             </ResourceDictionary.MergedDictionaries>
         </ResourceDictionary>
     </Application.Resources>

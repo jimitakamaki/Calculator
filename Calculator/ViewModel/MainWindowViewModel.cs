@@ -42,7 +42,7 @@ namespace Calculator.ViewModel
             if (_culture.NumberFormat.NumberDecimalSeparator.Equals(",")) DecimalSeparator = ",";
             else DecimalSeparator = ".";
 
-            _text = "";
+            _text = "0";
 
             AddNumberCommand = new RelayCommand<string>(addNumber);
             AddDecimalSeparatorCommand = new RelayCommand(addDecimalSeparator);
@@ -55,7 +55,8 @@ namespace Calculator.ViewModel
         {
             if (Text.Replace(" ", string.Empty).Length <= 28)
             {
-                Text += n;
+                if (Text.Equals("0")) Text = n;
+                else Text += n;
                 Text = _calcFormatter.FormatCalculationString(Text);
             }
         }
@@ -67,13 +68,14 @@ namespace Calculator.ViewModel
 
         private void clearText()
         {
-            Text = "";
+            Text = "0";
         }
 
         private void eraseCharacter()
         {
             Text = Text.Remove(Text.Length - 1);
             Text = _calcFormatter.FormatCalculationString(Text);
+            if (Text.Length == 0) Text = "0";
         }
 
         private void calculate()
