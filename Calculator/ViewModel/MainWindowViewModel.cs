@@ -15,6 +15,7 @@ namespace Calculator.ViewModel
     {
         private CalculatorModel _calculator;
         private CalculationFormatter _calcFormatter;
+        private CalculationSplitter _calcSplitter;
         private CultureInfo _culture = CultureInfo.CurrentCulture;
 
         private string _text;
@@ -38,6 +39,7 @@ namespace Calculator.ViewModel
         {
             _calculator = new CalculatorModel();
             _calcFormatter = new CalculationFormatter();
+            _calcSplitter = new CalculationSplitter();
 
             if (_culture.NumberFormat.NumberDecimalSeparator.Equals(",")) DecimalSeparator = ",";
             else DecimalSeparator = ".";
@@ -53,7 +55,7 @@ namespace Calculator.ViewModel
 
         private void addNumber(string n)
         {
-            if (Text.Replace(" ", string.Empty).Length <= 28)
+            if (_calcSplitter.SplitIntoList(Text).Last().Length <= 28)
             {
                 if (Text.Equals("0")) Text = n;
                 else Text += n;
@@ -63,7 +65,7 @@ namespace Calculator.ViewModel
 
         private void addDecimalSeparator()
         {
-            if (Text.Replace(" ", string.Empty).Length <= 27) Text += DecimalSeparator;
+            if (_calcSplitter.SplitIntoList(Text).Last().Length <= 27) Text += DecimalSeparator;
         }
 
         private void clearText()
