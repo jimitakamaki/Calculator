@@ -61,7 +61,7 @@
                 Name="btnDivide"
                 Grid.Row="0"
                 Grid.Column="3"
-                Command="{Binding AddNumberCommand}"
+                Command="{Binding AddMathematicalOperatorCommand}"
                 CommandParameter="/"
                 Style="{StaticResource CalculatorButtonStyle}">
                 /
@@ -97,7 +97,7 @@
                 Name="btnMultiply"
                 Grid.Row="1"
                 Grid.Column="3"
-                Command="{Binding AddNumberCommand}"
+                Command="{Binding AddMathematicalOperatorCommand}"
                 CommandParameter="*"
                 Style="{StaticResource CalculatorButtonStyle}">
                 *
@@ -133,7 +133,7 @@
                 Name="btnSubstract"
                 Grid.Row="2"
                 Grid.Column="3"
-                Command="{Binding AddNumberCommand}"
+                Command="{Binding AddMathematicalOperatorCommand}"
                 CommandParameter="-"
                 Style="{StaticResource CalculatorButtonStyle}">
                 -
@@ -169,7 +169,7 @@
                 Name="btnAdd"
                 Grid.Row="3"
                 Grid.Column="30"
-                Command="{Binding AddNumberCommand}"
+                Command="{Binding AddMathematicalOperatorCommand}"
                 CommandParameter="+"
                 Style="{StaticResource CalculatorButtonStyle}">
                 +

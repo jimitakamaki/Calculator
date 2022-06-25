@@ -31,6 +31,7 @@ namespace Calculator.ViewModel
             set { SetProperty(ref _decimalSeparator, value); }
         }
         public ICommand AddNumberCommand { get; }
+        public ICommand AddMathematicalOperatorCommand { get; }
         public ICommand AddDecimalSeparatorCommand { get; }
         public ICommand ClearTextCommand { get; }
         public ICommand EraseCharacterCommand { get; }
@@ -47,6 +48,7 @@ namespace Calculator.ViewModel
             _text = "0";
 
             AddNumberCommand = new RelayCommand<string>(addNumber);
+            AddMathematicalOperatorCommand = new RelayCommand<string>(addMathematicalOperator);
             AddDecimalSeparatorCommand = new RelayCommand(addDecimalSeparator);
             ClearTextCommand = new RelayCommand(clearText);
             EraseCharacterCommand = new RelayCommand(eraseCharacter);
@@ -60,6 +62,20 @@ namespace Calculator.ViewModel
                 if (Text.Equals("0")) Text = n;
                 else Text += n;
                 Text = _calcFormatter.FormatCalculationString(Text);
+            }
+        }
+
+        private void addMathematicalOperator(string m)
+        {
+            try
+            {
+                decimal.Parse(_calcSplitter.SplitIntoList(Text).Last());
+                Text += m;
+            }
+            catch
+            {
+                Text = Text.Remove(Text.Length - 1);
+                Text += m;
             }
         }
 
