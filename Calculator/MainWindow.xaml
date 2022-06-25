@@ -27,11 +27,11 @@
             StretchDirection="DownOnly"
             Grid.Row="0"
             Grid.Column="0" HorizontalAlignment="Right" VerticalAlignment="Stretch">
-            
+
             <TextBlock 
                 Text="{Binding Text}" 
                 Style="{DynamicResource TextBlockStyle}"/>
-            
+
         </Viewbox>
 
         <Grid Grid.Row="1">
@@ -64,7 +64,7 @@
                 Command="{Binding AddMathematicalOperatorCommand}"
                 CommandParameter="/"
                 Style="{StaticResource CalculatorButtonStyle}">
-                /
+                &#247;
             </Button>
             <Button
                 Name="btn7"
@@ -100,7 +100,7 @@
                 Command="{Binding AddMathematicalOperatorCommand}"
                 CommandParameter="*"
                 Style="{StaticResource CalculatorButtonStyle}">
-                *
+                &#215;
             </Button>
             <Button
                 Name="btn4"
