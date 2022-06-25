@@ -62,7 +62,7 @@
                 Grid.Row="0"
                 Grid.Column="3"
                 Command="{Binding AddMathematicalOperatorCommand}"
-                CommandParameter="/"
+                CommandParameter="÷"
                 Style="{StaticResource CalculatorButtonStyle}">
                 &#247;
             </Button>
@@ -98,7 +98,7 @@
                 Grid.Row="1"
                 Grid.Column="3"
                 Command="{Binding AddMathematicalOperatorCommand}"
-                CommandParameter="*"
+                CommandParameter="×"
                 Style="{StaticResource CalculatorButtonStyle}">
                 &#215;
             </Button>

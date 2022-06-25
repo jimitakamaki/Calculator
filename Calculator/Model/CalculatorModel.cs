@@ -29,14 +29,14 @@ namespace Calculator.Model
             // Multiplication & division
             for (int i = 0; i < parts.Count; i++)
             {
-                if (parts[i].Equals("*"))
+                if (parts[i].Equals("*") || parts[i].Equals("×"))
                 {
                     parts[i - 1] = (double.Parse(parts[i - 1], culture) * double.Parse(parts[i + 1], culture)).ToString("n12", culture);
                     parts.RemoveAt(i);
                     parts.RemoveAt(i);
                     i--;
                 }
-                else if (parts[i].Equals("/"))
+                else if (parts[i].Equals("/") || parts[i].Equals("÷"))
                 {
                     parts[i - 1] = (double.Parse(parts[i - 1], culture) / double.Parse(parts[i + 1], culture)).ToString("n12", culture);
                     parts.RemoveAt(i);
