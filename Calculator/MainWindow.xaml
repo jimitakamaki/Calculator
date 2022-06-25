@@ -23,10 +23,16 @@
             <RowDefinition Height="30*" />
             <RowDefinition Height="70*" />
         </Grid.RowDefinitions>
-
-        <TextBlock 
-            Text="{Binding Text}" 
-            Style="{DynamicResource TextBlockStyle}"/>
+        <Viewbox 
+            StretchDirection="DownOnly"
+            Grid.Row="0"
+            Grid.Column="0" HorizontalAlignment="Right" VerticalAlignment="Stretch">
+            
+            <TextBlock 
+                Text="{Binding Text}" 
+                Style="{DynamicResource TextBlockStyle}"/>
+            
+        </Viewbox>
 
         <Grid Grid.Row="1">
             <Grid.RowDefinitions>
